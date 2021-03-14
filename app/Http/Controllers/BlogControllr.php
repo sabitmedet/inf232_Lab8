@@ -13,4 +13,13 @@ class BlogControllr extends Controller
 
         return view('blog.index')->with(['blogs' => $blogs]);
     }
+
+    public function store(Request $request){
+        Blog::create([
+            'name' => $request->name,
+            'surname' => $request->surname,
+            'age' => $request->age
+        ]);
+        return back();
+    }
 }
