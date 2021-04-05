@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\DB;
 use App\Models\Blog;
 use App\Http\Controllers\BlogControllr;
+use App\Http\Controllers\ContactController;
 
 /*
 |--------------------------------------------------------------------------
@@ -48,3 +49,7 @@ Route::get('blog/create', function() {
 Route::post('blog/create', [BlogControllr::class, 'store'])->name('add-blog'); 
 
 Route::get('blog/{id}', [BlogControllr::class, 'get_blog']);
+
+Route::get('/contact_us', [ContactController::class, 'contact']);
+
+Route::post('/send-message',[ContactController::class, 'sendEmail'])->name('contact.send');
